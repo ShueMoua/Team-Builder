@@ -9,6 +9,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const { ADDRGETNETWORKPARAMS } = require("dns");
 
 
 // Write code to use inquirer to gather information about the development team members,
@@ -33,3 +34,37 @@ const render = require("./lib/htmlRenderer");
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
+
+const employeeArray = [];
+
+function startTeam() {
+    function createManager() {
+        inquirer.prompt([{
+                type: "input",
+                name: "managerName",
+                message: "What is your manager's name?",
+            },
+            {
+                type: "input",
+                name: "managerID",
+                message: "What is your manager's id?",
+            },
+            {
+                type: "input",
+                name: "managerEmail",
+                message: "What is your manager's email?",
+            },
+            {
+                type: "input",
+                name: "managerOfficeNumber",
+                message: "What is your manager's office number?",
+            },
+        ]).then(function(response) {
+            let manager = new Manager(response.managerName, response.managerID, response.managerEmail, response.managerOfficeNumber);
+            employeeArray.push(manager);
+            addTeamMember();
+        });
+    };
+
+
+}

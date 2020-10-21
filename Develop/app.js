@@ -109,7 +109,7 @@ function startTeam() {
                 message: "What is your engineer's GitHub username?"
             }
         ]).then(function(response) {
-            let engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub);
+            let engineer = new Engineer(response.engineerName, response.engineerID, response.engineerEmail, response.engineerGithub);
             employeeArray.push(engineer);
             addTeamMember();
         });
@@ -123,7 +123,7 @@ function startTeam() {
             },
             {
                 type: "input",
-                name: "internId",
+                name: "internID",
                 message: "What is your intern's id?"
             },
             {
@@ -137,7 +137,7 @@ function startTeam() {
                 message: "What is your intern's school?"
             },
         ]).then(function(response) {
-            let intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool);
+            let intern = new Intern(response.internName, response.internID, response.internEmail, response.internSchool);
             employeeArray.push(intern);
             addTeamMember();
         });

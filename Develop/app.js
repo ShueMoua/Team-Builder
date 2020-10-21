@@ -143,4 +143,11 @@ function startTeam() {
         });
     };
 
+    function generateTeam() {
+        fs.writeFileSync("index.html", render(employeeArray), "utf-8");
+    };
+
+    createManager();
 }
+
+startTeam();

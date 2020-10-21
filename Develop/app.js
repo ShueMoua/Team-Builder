@@ -66,5 +66,24 @@ function startTeam() {
         });
     };
 
-
+    function addTeamMember() {
+        inquirer.prompt([{
+            type: "list",
+            message: "Which team member would you like to add?",
+            name: "newMember",
+            choices: [
+                "Engineer",
+                "Intern",
+                "None"
+            ]
+        }]).then(function(response) {
+            if (response.newMember === "Engineer") {
+                createEngineer();
+            } else if (response.newMember === "Intern") {
+                createIntern();
+            } else {
+                generateTeam()
+            };
+        });
+    };
 }

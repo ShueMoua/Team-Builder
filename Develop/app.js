@@ -86,4 +86,32 @@ function startTeam() {
             };
         });
     };
+
+    function createEngineer() {
+        inquirer.prompt([{
+                type: "input",
+                name: "engineerName",
+                message: "What is your engineer's name?"
+            },
+            {
+                type: "input",
+                name: "engineerID",
+                message: "What is your engineer's ID?"
+            },
+            {
+                type: "input",
+                name: "engineerEmail",
+                message: "What is your engineer's email?"
+            },
+            {
+                type: "input",
+                name: "engineerGithub",
+                message: "What is your engineer's GitHub username?"
+            }
+        ]).then(function(response) {
+            let engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub);
+            employeeArray.push(engineer);
+            generateTeam();
+        })
+    }
 }

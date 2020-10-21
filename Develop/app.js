@@ -82,7 +82,7 @@ function startTeam() {
             } else if (response.newMember === "Intern") {
                 createIntern();
             } else {
-                generateTeam()
+                generateTeam();
             };
         });
     };
@@ -111,7 +111,36 @@ function startTeam() {
         ]).then(function(response) {
             let engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub);
             employeeArray.push(engineer);
-            generateTeam();
-        })
-    }
+            addTeamMember();
+        });
+    };
+
+    function createIntern() {
+        inquirer.prompt([{
+                type: "input",
+                name: "internName",
+                message: "What is your intern's name?"
+            },
+            {
+                type: "input",
+                name: "internId",
+                message: "What is your intern's id?"
+            },
+            {
+                type: "input",
+                name: "internEmail",
+                message: "What is your intern's email?"
+            },
+            {
+                type: "input",
+                name: "internSchool",
+                message: "What is your intern's school?"
+            },
+        ]).then(function(response) {
+            let intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool);
+            employeeArray.push(intern);
+            addTeamMember();
+        });
+    };
+
 }

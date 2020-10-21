@@ -5,8 +5,6 @@
 ## Description: 
     This application will assist you with building a team portfolio. 
 <hr>
-
-![Image of Application](./pics/appimg.JPG)
     
 ## Table of Contents
 * [Installation](#Installation)
